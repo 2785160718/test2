@@ -1,0 +1,31 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    user:null,
+    isshow:false,
+    fontColor: false,
+    Color:'#333',
+    LoadingShow: false,
+    LoadingTitle:'正在加载内容请稍后...'
+    },
+  mutations: {
+    updateShow(state,data) {
+      state.isshow = data
+    },
+    userstate(state,data) {
+      state.user = data
+    },
+    updatefont(state, data) {
+      state.fontColor = data
+      data ? state.Color = '#fff': state.Color = '#333'
+    },
+    LoadingTitleChange(state, data) {
+      state.LoadingTitle = data.title;
+      state.LoadingShow = data.isshow;
+    }
+  }
+})
